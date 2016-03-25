@@ -1,0 +1,4 @@
+*.swp
+config.js
+node_modules
+ehc2.txt

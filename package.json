@@ -1,0 +1,21 @@
+{
+  "name": "enocean-_hc2",
+  "description": "Get Enocean device info and push them to Fibaro HC2",
+  "version": "0.1.0",
+  "main": "enocean_hc2.js",
+  "author" :{
+     "name": "Gilles Polart-Donat",
+	 "email":"gp@lutra.io",
+	 "url":"http://www.lutra.io"
+  },
+  "licence": "GPL V3",
+  "dependencies": {
+    "node-enocean": ">=1.0.2",
+    "debug": ">=0.6.2",
+    "request":">=2.67.0",
+    "yamljs": ">=0.2.3",
+    "async": ">=1.4.0"
+  }
+}
+
+
