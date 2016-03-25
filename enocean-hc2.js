@@ -20,9 +20,7 @@ var request  = require('request');
 var yaml  = require('yamljs');
 var fs = require('fs');
 var config  = require('./config.js');
-//var async  = require('async.js');
 //
-var read_active = false;
 var packets = {};
 //=========================================================================================
 // Utilities to stop process correctly
@@ -31,7 +29,7 @@ function exitHandler(options, err) {
 	debug("exitHandler   options : ", options);
 	if (options.exit) process.exit();
 }
-//catches ctrl+c event
+//catch ctrl+c event
 process.on('SIGINT', exitHandler.bind(null, {exit:true}));
 // ---------------------------------------------------------------------------
 // read_packets
@@ -105,34 +103,18 @@ function do_request(args) {
         // TODO test return of request
     });
 }
-// ----------------------------------------------------------------------------------------
-// Log messages as a variable
-// ----------------------------------------------------------------------------------------
-function log_message(msg) {
-    debug("log_message ... ");
-
-    //record_variable("enocean.logs", msg);
-}
 //=========================================================================================
 // Main server initialize
 //-----------------------------------------------------------------------------------------
 function start(options) {
-	debug("========  enocean-agent starting ==========");
-	log_message(" enocean-agent starting ...");
 
     path = config.filename;
     read_packets();
 
-    debug("options = ", options);
     enocean.listen(options.device);
-
-
-
     enocean.on("data", function(data) {
-        //debug("data = ", data);
         record_data(data)
     });
-
 }
 
 start(config.enocean);

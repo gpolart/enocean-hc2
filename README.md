@@ -15,11 +15,26 @@ $ npm install
 
 Copy config-sample.js to config.js and modify it.
 
+The request to Home Center is done with :
+
+```
+config.enocean.hc2_protocol + '://' + config.enocean.hc2_user + ":" + config.enocean.hc2_passwd + "@" + config.enocean.hc2_name + '/api/callAction?' + args
+```
+
+where "args" come from created file (see below)
+
 ## Run
 
 ```sh
-$ node enocean_hc2.js
+$ node enocean-hc2.js
 ```
+
+If you want to see deibug messages : 
+
+```sh
+$ DEBUG=enocean-hc2 node enocean-hc2.js
+```
+
 ## File format
 
 When running, the program will collect information for switch and Enocean equipments and put them in a text file with records like :
